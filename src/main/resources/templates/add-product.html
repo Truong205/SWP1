@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org"
+      th:replace="layout/layout :: layout (~{::title}, ~{::section})">
+<head th:replace="fragments/header :: header">
+    <title>Thêm sản phẩm</title>
+</head>
+<section>
+    <div class="container py-5">
+        <h2 class="mb-4">Thêm sản phẩm mới</h2>
+        <div th:if="${message}" class="alert alert-success" th:text="${message}"></div>
+        <form th:action="@{/add-product}" th:object="${product}" method="post">
+            <div class="mb-3">
+                <label class="form-label">Tên sản phẩm</label>
+                <input type="text" class="form-control" th:field="*{name}" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Mã danh mục (CategoryID)</label>
+                <input type="number" class="form-control" th:field="*{categoryID}" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Mô tả</label>
+                <textarea class="form-control" th:field="*{description}"></textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Giá</label>
+                <input type="number" step="0.01" class="form-control" th:field="*{price}" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Số lượng</label>
+                <input type="number" class="form-control" th:field="*{quantity}" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Ảnh (upload)</label>
+                <input type="file" class="form-control" name="imageFile" accept="image/*">
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" th:field="*{active}" checked>
+                <label class="form-check-label">Kích hoạt</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Thêm sản phẩm</button>
+        </form>
+    </div>
+</section>
