@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="vi" xmlns:th="http://www.thymeleaf.org"
-      th:replace="layout/layout :: layout (~{::title}, ~{::section})">
-<head th:replace="fragments/header :: header">
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout/layout :: layout (~{::title}, ~{::section})}">
+<head>
     <title>Thêm sản phẩm</title>
 </head>
 <section>
