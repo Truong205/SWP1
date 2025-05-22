@@ -1,43 +1,43 @@
 <!DOCTYPE html>
 <html lang="vi" xmlns:th="http://www.thymeleaf.org"
       th:replace="layout/layout :: layout (~{::title}, ~{::section})">
-<head th:replace="fragments/header :: header">
+<head>
     <title>Thêm sản phẩm</title>
 </head>
 <section>
     <div class="container py-5">
-        <h2 class="mb-4">Thêm sản phẩm mới</h2>
+        <h2 class="title mb--40">Thêm sản phẩm mới</h2>
         <div th:if="${message}" class="alert alert-success" th:text="${message}"></div>
         <form th:action="@{/add-product}" th:object="${product}" method="post">
-            <div class="mb-3">
-                <label class="form-label">Tên sản phẩm</label>
-                <input type="text" class="form-control" th:field="*{name}" required>
+            <div class="form-group">
+                <label>Tên sản phẩm <span>*</span></label>
+                <input type="text"  th:field="*{name}" required>
             </div>
-            <div class="mb-3">
-                <label class="form-label">Mã danh mục (CategoryID)</label>
-                <input type="number" class="form-control" th:field="*{categoryID}" required>
+            <div class="form-group">
+                <label>Mã danh mục (CategoryID)<span>*</span></label>
+                <input type="text" th:field="*{categoryID}" required>
             </div>
-            <div class="mb-3">
-                <label class="form-label">Mô tả</label>
-                <textarea class="form-control" th:field="*{description}"></textarea>
+            <div class="form-group">
+                <label>Mô tả<span>*</span></label>
+                <textarea type="text" th:field="*{description}"></textarea>
             </div>
-            <div class="mb-3">
-                <label class="form-label">Giá</label>
-                <input type="number" step="0.01" class="form-control" th:field="*{price}" required>
+            <div class="form-group">
+                <label>Giá<span>*</span></label>
+                <input type="text"  th:field="*{price}" required>
             </div>
-            <div class="mb-3">
-                <label class="form-label">Số lượng</label>
-                <input type="number" class="form-control" th:field="*{quantity}" required>
+            <div class="form-group">
+                <label>Số lượng<span>*</span></label>
+                <input type="text"  th:field="*{quantity}" required>
             </div>
-            <div class="mb-3">
-                <label class="form-label">Ảnh (upload)</label>
-                <input type="file" class="form-control" name="imageFile" accept="image/*">
+            <div class="form-group">
+                <label>Ảnh (upload)<span>*</span></label>
+                <input type="file"  name="imageFile" accept="image/*">
             </div>
-            <div class="mb-3 form-check">
+            <div class="form-group">
                 <input type="checkbox" class="form-check-input" th:field="*{active}" checked>
-                <label class="form-check-label">Kích hoạt</label>
+                <label>Kích hoạt<span>*</span></label>
             </div>
-            <button type="submit" class="btn btn-primary">Thêm sản phẩm</button>
+                <button type="submit" class="axil-btn btn-bg-primary checkout-btn">Thêm sản phẩm</button>
         </form>
     </div>
 </section>
