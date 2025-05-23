@@ -1,6 +1,6 @@
 package com.example.swp1.controller;
 
-import com.example.swp1.model.Product;
+import com.example.swp1.entity.Product;
 import com.example.swp1.repository.ProductRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,19 +15,19 @@ public class ProductController {
     public ProductController(ProductRepository repo) {
         this.repo = repo;
     }
-    @GetMapping("/add-product")
+    @GetMapping("/admin/add-product")
     public String showAddProductForm(Model model){
         model.addAttribute("product", new Product());
-        return "add-product";
+        return "admin/add-product";
     }
-    @PostMapping("/add-product")
+    @PostMapping("/admin/add-product")
     public String addProduct(@ModelAttribute("product") Product product, BindingResult result, Model model){
         if (result.hasErrors()){
-            return "add-product";
+            return "admin/add-product";
         }
         repo.save(product);
         model.addAttribute("message", "Product added successfully");
         model.addAttribute("product", new Product());
-        return "add-product";
+        return "admin/add-product";
     }
 }
