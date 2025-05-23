@@ -1,7 +1,8 @@
-package com.example.swp1.model;
+package com.example.swp1.entity;
 
 import jakarta.persistence.Entity;
-import java.math.BigDecimal;
+
+import java.math.BigInteger;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.GeneratedValue;
@@ -17,7 +18,7 @@ public class Product {
     private Integer categoryID;
     private String description;
 
-    private BigDecimal price;
+    private BigInteger price;
     private Integer quantity;
     private String imageURL;
 
@@ -27,7 +28,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(Integer productID, Integer categoryID, String name, String description, BigDecimal price, Integer quantity, String imageURL, LocalDateTime createdAt, Boolean isActive) {
+    public Product(Integer productID, Integer categoryID, String name, String description, BigInteger price, Integer quantity, String imageURL, LocalDateTime createdAt, Boolean isActive) {
         this.productID = productID;
         this.categoryID = categoryID;
         this.name = name;
@@ -71,11 +72,11 @@ public class Product {
         this.description = description;
     }
 
-    public BigDecimal getPrice() {
+    public BigInteger getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(BigInteger price) {
         this.price = price;
     }
 
