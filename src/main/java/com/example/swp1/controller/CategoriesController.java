@@ -18,7 +18,7 @@ public class CategoriesController {
     @GetMapping("/categories")
     public String showCategoriesPage(Model model){
         List<Categories> list = this.service.getAll();
-        return "admin/categories/index";
+        return "admin/categories/categories";
     }
     @RequestMapping("/add-categories")
     public String add(){
